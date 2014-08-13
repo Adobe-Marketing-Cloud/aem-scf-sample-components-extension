@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <groupId>com.adobe.aem.social.samples</groupId>
+    <artifactId>aem-social-scf-extensions-reactor</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Social SCF Extension Samples - Reactor</name>
+
+    <scm>
+        <connection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-scf-sample-components-extension.git</connection>
+        <developerConnection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-scf-sample-components-extension.git</developerConnection>
+        <url>https://github.com/Adobe-Marketing-Cloud/aem-scf-sample-components-extension/tree/master</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- ====================================================================== -->
+    <!-- M O D U L E S                                                          -->
+    <!-- ====================================================================== -->
+    <modules>
+        <module>bundles/aem-scf-extensions</module>
+        <module>content</module>
+    </modules>
+</project>
