@@ -3,4 +3,6 @@
     <filter root="/apps/acme"/>
     <filter root="/etc/designs/acme"/>
     <filter root="/content/acme"/>
+    <filter root="/etc/tags/Acme"/>
+    <filter root="/etc/tags/acmeideas"/>
 </workspaceFilter>
