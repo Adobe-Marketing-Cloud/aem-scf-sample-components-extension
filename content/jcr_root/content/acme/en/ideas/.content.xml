@@ -41,6 +41,8 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="acme/components/ideation/forum"
                 allowVoting=true
+                allowTagging=true
+                taggingFilter="/etc/tags/Acme"
                 subscribeWorkflow="/etc/workflow/models/social/forum/forum_topic_subscription/jcr:content/model"/>
         </content>
         <header
