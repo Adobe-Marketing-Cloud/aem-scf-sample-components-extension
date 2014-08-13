@@ -1,0 +1,11 @@
+.scf-idea-status {
+	background-color: #ed3f30;
+    border-radius: 11px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 10px;
+    height: 5px;
+    line-height: 7px;
+    margin-left: 10px;
+    padding: 5px;	
+}
