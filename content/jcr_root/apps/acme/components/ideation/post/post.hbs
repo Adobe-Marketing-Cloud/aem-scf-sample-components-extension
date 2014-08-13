@@ -57,11 +57,6 @@
             {{include this template="toolbar"}}
         </div>
     </div>
-        {{#if configuration.isVotingAllowed}}
-        <div class="scf-comment-votes">
-                {{include this.votes resourceType='social/tally/components/hbs/voting'}}
-        </div>
-        {{/if}}
        <div class="scf-comment-replies">
     		{{#if items}}
             <ul class="scf-comments-list">

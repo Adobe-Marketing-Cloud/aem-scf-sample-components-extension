@@ -43,6 +43,11 @@
             </ul>
             {{/if}}
         </div>
+        {{#if configuration.isVotingAllowed}}
+            <div class="scf-comment-votes">
+                {{include this.votes resourceType='social/tally/components/hbs/voting'}}
+            </div>
+        {{/if}}
         {{include this template="toolbar"}}
     </div>
     <div class="scf-clear-both"></div>
