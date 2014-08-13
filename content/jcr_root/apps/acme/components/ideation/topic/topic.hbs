@@ -1,0 +1,123 @@
+{{!
+
+ Copyright 2013 Adobe
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+}}
+<div class="scf scf-topic" data-component-id="{{id}}" data-scf-component="acme/components/ideation/topic">
+    <p class="scf-breadcrumb scf-quiet">{{i18n "Topics"}} &#187; <a href="{{pageInfo.basePageURL}}.html">{{i18n "Ideation Forum"}}</a> &#187; {{subject}}</p> 
+    <aside class="scf-topic-userinfo">
+        <img class="scf-topic-avatar" src="{{author.largeAvatarUrl}}" alt="{{author.name}}" title="{{author.name}}"/>
+        <p>
+            <div class="scf-quiet"><a href="{{author.profileURL}}">{{author.name}}</a></div>
+            <div class="scf-quiet">{{author.numberOfPosts}} {{i18n "Posts"}}</div>
+        </p>
+    </aside>
+    <div class="scf-topic-col1">
+        <div class="scf-js-topic-details">
+            {{include this template="status"}}
+            <h3 data-translate-prop="jcr:title" data-translate-respath="{{id}}">{{subject}}
+                {{#if status}}<span class="scf-idea-status">{{status}}</span>{{/if}}
+            </h3>
+            <p class="scf-js-comment-msg" data-translate-prop="jcr:description" data-translate-respath="{{id}}">
+                {{#if configuration.isRTEEnabled}}
+                    {{{message}}}
+                {{else}}
+                    {{message}}
+                {{/if}}
+            </p>
+            {{#if configuration.isTaggingAllowed}}
+            <ul class="scf-horizontal-tag-list">
+            {{#each tags}}
+                <li class="scf-selected-tag">{{title}}</li>
+            {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+        {{#if configuration.isVotingAllowed}}
+            <div class="scf-comment-votes">
+                {{include this.votes resourceType='social/tally/components/hbs/voting'}}
+            </div>
+        {{/if}}
+        {{include this template="toolbar"}}
+    </div>
+    <div class="scf-clear-both"></div>
+    
+   		   {{#if this.configuration.isAttachmentAllowed}}
+                {{#if attachments}}
+                	<div class="scf-comment-attachments">
+                        {{#each attachments}}
+                        	
+                        		{{#if this.image}}
+	                            <div class="scf-comment-img-att">
+	                            	<img src="{{this.path}}" class="scf-comment-attachment-img" />
+	                            	<div class="scf-comment-att-name"><a href="{{this.path}}" target="_blank" class="scf-link">{{name}}</a></div>
+	                            </div>
+	                            {{else}}
+	                            <div class="scf-comment-att scf-icon-attachment scf-small "><a class="scf-link scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></div>
+	                            {{/if}}
+	                        
+                        {{/each}}
+                    </div>
+                {{/if}}
+            {{/if}}
+    <ul class="scf-comments-list">
+        {{#each items}}
+            {{#if isVisible}}
+                {{include this resourceType="acme/components/ideation/post"}}
+            {{/if}}
+        {{/each}}
+    </ul>
+    <div class="scf-pages">
+        <ul class="scf-pages-list">
+            {{#pages pageInfo}}
+            <li class="scf-pages-list-item">
+                <a class="scf-page{{#if currentPage}} scf-currentPage{{/if}}" data-page-suffix="{{suffix}}" evt="click=navigate">{{pageNumber}}</a>
+            </li>
+            {{/pages}}
+        </ul>
+    </div>
+    {{#unless isClosed}}
+        <h3>Post Reply</h3>
+        <div class="scf-composer-block scf-is-collapsed scf-js-composer-block">
+            <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}"></img>
+            <form evt="submit=addReply" class="scf-composer">
+                {{#if configuration.isRTEEnabled}}
+                    <textarea class="scf-composer-msg scf-rte-placeholder"  placeholder="{{i18n "Write a comment"}}" evt="click=toggleComposerCollapse"></textarea>
+                    <div class="scf-rte-composer">
+                        <textarea class="scf-composer-msg"  data-attrib = "replyMessage" data-field-type="rte" name = "replyMessage" placeholder="{{i18n "Write a comment"}}"></textarea>
+                    </div>
+                {{else}}
+                    <textarea class="scf-composer-msg"  data-attrib = "replyMessage" name = "replyMessage" placeholder="{{i18n "Write a comment"}}" evt="click=toggleComposerCollapse"></textarea>
+                {{/if}}
+                <div class="scf-composer-toolbar">
+                   {{#if configuration.isAttachmentAllowed}}
+                        <button class="scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                        <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib = "attachment" name="attachment" multiple evt="change=renderAttachmentList" />
+                    {{/if}}
+                    <div class="scf-composer-actions">
+                        <button type="reset" class="scf-composer-action" evt="click=toggleComposerCollapse" >{{i18n "Cancel"}}</button>
+                        <input type="submit" value="{{i18n "Reply"}}" evt="submit=addReply"/>
+                    </div>
+                    {{#if configuration.isAttachmentAllowed}}
+                        <div class="scf-composer-attachments">
+                            <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    {{/unless}}
+</div>
+{{include this resourceType='social/translation/components/translation'}} 

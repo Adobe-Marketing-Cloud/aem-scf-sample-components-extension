@@ -1,0 +1,73 @@
+{{!
+
+ Copyright 2013 Adobe
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+}}
+<li class="scf scf-post {{#if _isNew}}scf-is-new{{/if}}" data-component-id="{{id}}" data-scf-component="social/forum/components/hbs/post">
+    <aside class="scf-topic-userinfo">
+        <img class="scf-comment-avatar {{#if topLevel}}withTopLevel{{/if}}" src="{{author.avatarUrl}}"></img>
+        <p>
+            <div class="scf-quiet"><a href="{{author.profileURL}}">{{author.name}}</a></div>
+            <div class="scf-quiet">{{author.numberOfPosts}} {{i18n "Posts"}}</div>
+        </p>
+    </aside>
+    <div class="scf-comment-data {{#if topLevel}}withTopLevel{{/if}}">
+		<div class="scf-comment-body">
+            <div class="scf-comment-content">
+            <time class="scf-comment-time scf-quiet">{{i18n "Replied"}} {{pretty-time created}}</time>
+            {{#if totalSize}}<div class="scf-replies-count scf-quiet">&nbsp;|&nbsp;&nbsp;<span class="scf-icon-comment"></span>&nbsp;<span data-attrib = "items-count">{{totalSize}}</span></div>{{/if}}    
+            {{include this template="status"}}
+    		<div class="scf-comment-msg scf-js-comment-msg" data-translate-prop="jcr:description" data-translate-respath="{{id}}">
+    			{{#if configuration.isRTEEnabled}}
+                    {{{message}}}
+                {{else}}
+                    {{message}}
+                {{/if}}
+                {{#if this.configuration.isAttachmentAllowed}}
+	                {{#if attachments}}
+	                	<div class="scf-comment-attachments">
+	                        {{#each attachments}}
+	                        	
+	                        		{{#if this.image}}
+		                            <div class="scf-comment-img-att">
+		                            	<img src="{{this.path}}" class="scf-comment-attachment-img" />
+		                            	<div class="scf-comment-att-name"><a href="{{this.path}}" target="_blank" class="scf-link">{{name}}</a></div>
+		                            </div>
+		                            {{else}}
+		                            <div class="scf-comment-att scf-icon-attachment scf-small "><a class="scf-link scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></div>
+		                            {{/if}}
+		                        
+	                        {{/each}}
+	                    </div>
+	                {{/if}}
+           		{{/if}}
+            </div>
+            {{include this template="toolbar"}}
+        </div>
+    </div>
+       <div class="scf-comment-replies">
+    		{{#if items}}
+            <ul class="scf-comments-list">
+            {{#each items}}
+                {{#if isVisible}}
+                    {{include this resourceType='acme/components/ideation/post'}}
+                {{/if}} 
+            {{/each}}
+            </ul>
+    		{{/if}}
+        </div>
+        {{#loadmore this}}<a class="scf-link scf-load-more" data-page-suffix="{{suffix}}" evt="click=loadMore" href="{{moreURL}}"><span class="scf-icon-dblright"></span>&nbsp;{{i18n "Load replies"}}</a>{{/loadmore}}
+    <div class="scf-clear-both"></div>        
+</li>

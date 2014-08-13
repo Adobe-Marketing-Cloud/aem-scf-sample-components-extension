@@ -1,0 +1,42 @@
+{{!
+
+ Copyright 2013 Adobe
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+}}
+<div class="scf-topic-listitem" data-component-id="{{id}}" data-scf-component="acme/components/ideation/topic">
+    <aside class="scf-topic-userinfo">
+        <img class="scf-topic-avatar" src="{{author.largeAvatarUrl}}" alt="{{author.name}}" title="{{author.name}}"></img>
+    </aside>
+    <div class="scf-topic-col1">
+        <a href="{{friendlyUrl}}"><h3>{{subject}}{{#if status}}<span class="scf-idea-status">{{status}}</span>{{/if}}</h3></a>
+        <div>
+            <a href="{{author.profileURL}}">{{author.name}}</a> <span class="scf-quiet">{{i18n "Posted"}} {{pretty-time created}}</span>
+            {{#if configuration.isTaggingAllowed}}
+            <ul class="scf-horizontal-tag-list">
+                {{#each tags}}
+                    <li class="scf-selected-tag">{{title}}</li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+        <p class="scf-comment-msg">
+            {{abbreviate message maxLength=256 safeString=configuration.isRTEEnabled}} <a href="{{friendlyUrl}}">{{i18n "Read More"}}</a>
+        </p>
+    </div>
+    <div class="scf-topic-col2">
+        <h3>{{totalSize}} <span class="scf-icon-comment"></span></h3>
+    </div>
+    <div class="scf-clear-both"></div>
+</div>

@@ -1,0 +1,75 @@
+{{!
+
+ Copyright 2013 Adobe
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+}}
+{{#if-wcm-mode mode="EDIT"}}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-forum" data-component-id="{{id}}" data-scf-component="acme/components/ideation/forum">
+    <header>
+        <h2 class="scf-forum-heading">{{i18n "Ideas" }}</h2>
+        <button class="scf-forum-newtopic scf-js-newtopic" evt="click=toggleComposer">{{i18n "New Idea"}}</button>
+        <div class="scf-clear-both"></div>
+    </header>
+    <div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+        <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}"></img>
+        <form evt="submit=addComment" class="scf-composer">
+            <input class="scf-composer-msg" type="text" data-attrib="subject" name="subject" placeholder="{{i18n "Subject"}}" />
+            <textarea class="scf-composer-msg" type="text" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" class="comment-composer-input"{{#if configuration.isRTEEnabled}} data-field-type="rte"{{/if}}></textarea>
+            {{#if configuration.isTaggingAllowed}}
+                <select data-attrib="tags" name="tags" data-field-type="tags" size="1"></select>
+            {{/if}}
+            <div class='scf-composer-toolbar'>
+                {{#if configuration.isAttachmentAllowed}}
+                    <button class="scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                    <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib = 'attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+                {{/if}}
+                <div class="scf-composer-actions">
+                    <button type="reset" class="scf-composer-action" evt="click=toggleComposer" >{{i18n "Cancel"}}</button>
+                    <input type="submit" value="{{i18n "Post"}}" evt="submit=addComment"/>
+                </div>
+                {{#if configuration.isAttachmentAllowed}}
+                    <div class="scf-composer-attachments">
+                        <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                    </div>
+                {{/if}}
+            </div>
+        </form>
+    </div>
+    <div class="idea-filters">Filters:
+    <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"rewards"' class="idea-filter" >Rewards</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"customer"' class="idea-filter">Customer Service</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"other"' class="idea-filter" >Other</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"products"' class="idea-filter">Products</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"experience"' class="idea-filter" >Experience</a>        
+    </div>    
+    <ul class="scf-topic-list">
+        {{#each items}}
+            {{#if isVisible}}
+                <li>{{include this resourceType="acme/components/ideation/topic" template="list-item"}}</li>
+            {{/if}}
+        {{/each}}
+    </ul>
+    <div class="scf-pages">
+        <ul class="scf-pages-list">
+            {{#pages pageInfo}}
+            <li class="scf-pages-list-item">
+                <a class="scf-page{{#if currentPage}} scf-currentPage{{/if}}" data-page-suffix="{{suffix}}" evt="click=navigate">{{pageNumber}}</a>
+            </li>
+            {{/pages}}
+        </ul>
+    </div>
+</div>

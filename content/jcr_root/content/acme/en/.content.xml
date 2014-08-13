@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:scg="http://www.adobe.com/social/scg/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2014-05-19T14:52:18.947-07:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2014-05-19T14:52:27.783-07:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/apps/acme/templates/page"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:language="en"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About Us"
+        jcr:uuid="051a9d08-b31f-40f9-9a42-ca1448ad4595"
+        sling:resourceType="/apps/acme/components/page"
+        navTitle="ACME">
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <title
+                jcr:created="{Date}2013-12-06T11:35:15.808-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-12-06T11:35:15.808-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/title"/>
+            <text
+                jcr:created="{Date}2014-05-19T14:50:40.110-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2014-05-19T14:51:07.362-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/text"
+                text="&lt;p>&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eleifend ipsum commodo fringilla. Suspendisse quis feugiat lacus, ut imperdiet leo. Etiam ut facilisis tortor. Sed malesuada quam at tempor semper. Donec tincidunt velit et velit congue pulvinar. Nullam ut porttitor massa. Integer nec fermentum orci. Vestibulum dapibus eu leo a rhoncus. Donec nec lacus ut leo placerat venenatis. Nunc ante purus, scelerisque id mollis non, tincidunt quis risus. Phasellus nec ipsum a diam sollicitudin laoreet nec a urna.&lt;/p>&#xa;&lt;p>Sed bibendum metus massa, a venenatis magna pellentesque quis. Aliquam tristique, massa quis venenatis consectetur, orci turpis dictum dui, at sodales mauris nulla quis diam. Duis enim neque, adipiscing a orci vitae, adipiscing accumsan neque. Maecenas pulvinar feugiat suscipit. Duis eget rutrum urna. Suspendisse bibendum, est quis commodo lacinia, orci odio vestibulum eros, sed ornare felis leo sed augue. Cras nec elit arcu. Donec eget ullamcorper mauris. Proin quis diam sed mauris molestie posuere et ultrices sem. Mauris egestas magna ut imperdiet tempor. Vestibulum ullamcorper ultricies lacus eget pharetra. Sed ullamcorper nulla id elit feugiat bibendum. Sed feugiat purus vitae laoreet venenatis. Etiam eget posuere orci.&lt;/p>&#xa;&lt;p>Phasellus venenatis diam in turpis facilisis facilisis vel in nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut odio nec velit fringilla aliquet ac in mauris. Vestibulum varius fermentum tellus ac venenatis. Suspendisse in ipsum eget metus dictum tristique. Nam non justo molestie, vulputate metus sit amet, fringilla ligula. Ut aliquam tellus facilisis erat sodales hendrerit. Nunc euismod metus cursus nisi tristique, eget volutpat sem porttitor. In eget arcu vel nulla faucibus pharetra. Etiam interdum molestie nibh at fringilla. Ut iaculis justo in ipsum tincidunt volutpat vel a velit. Pellentesque vel ipsum eu erat condimentum eleifend vel vel tortor. Vestibulum a arcu dignissim ipsum posuere fringilla quis scelerisque justo. Vivamus ultrices massa nec ipsum ultricies, a commodo dui ultrices. Fusce felis mauris, tincidunt et tellus ut, cursus cursus magna.&lt;/p>&#xa;&lt;/p>&#xa;"
+                textIsRich="true"/>
+            <clientlibslist
+                jcr:created="{Date}2013-12-06T13:01:47.362-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-12-06T13:10:44.759-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                scg:requiredClientLibs="[cq.ckeditor,cq.social.hbs.comments,cq.social.hbs.voting]"
+                sling:resourceType="acme/components/clientlibslist"/>
+            <comments
+                jcr:created="{Date}2014-05-19T12:02:52.006-07:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2014-05-19T12:02:52.006-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="social/commons/components/hbs/comments"/>
+        </content>
+        <header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/apps/acme/components/header"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <clientlibs/>
+    <jcr:content
+        cq:lastModified="{Date}2014-05-20T17:51:49.757-07:00"
+        cq:lastModifiedBy="admin"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:uuid="8146e36d-fde1-4659-9958-3972b7cda85a"
+        sling:resourceType="wcm/core/components/designer">
+        <page jcr:primaryType="nt:unstructured">
+            <par
+                jcr:lastModified="{Date}2013-11-21T15:15:05.017-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[/libs/foundation/components/image,/libs/foundation/components/list,/libs/foundation/components/text,/libs/foundation/components/textimage,/libs/foundation/components/title,group:ACME Samples]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </par>
+            <content
+                jcr:lastModified="{Date}2014-05-19T11:59:36.928-07:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:General,group:Communities,group:ACME Samples]">
+                <section jcr:primaryType="nt:unstructured"/>
+                <forum
+                    jcr:lastModified="{Date}2014-05-20T17:51:49.749-07:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="acme/components/ideation/forum"
+                    postresourcetype="acme/components/ideation/post"
+                    topicresourcetype="acme/components/ideation/topic"
+                    votingRoot="voting"/>
+            </content>
+        </page>
+        <componentpage jcr:primaryType="nt:unstructured">
+            <content
+                jcr:lastModified="{Date}2013-12-06T11:44:11.162-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:General,group:Communities,group:ACME Samples]">
+                <section jcr:primaryType="nt:unstructured"/>
+                <forum
+                    jcr:lastModified="{Date}2014-05-20T17:51:49.749-07:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="acme/components/ideation/forum"
+                    postresourcetype="acme/components/ideation/post"
+                    topicresourcetype="acme/components/ideation/topic"
+                    votingRoot="voting"/>
+            </content>
+        </componentpage>
+    </jcr:content>
+    <bg.jpg/>
+</jcr:root>
