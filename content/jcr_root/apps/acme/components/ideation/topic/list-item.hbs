@@ -20,7 +20,7 @@
         <img class="scf-topic-avatar" src="{{author.largeAvatarUrl}}" alt="{{author.name}}" title="{{author.name}}"></img>
     </aside>
     <div class="scf-topic-col1">
-        <a href="{{friendlyUrl}}"><h3>{{subject}}</h3></a>
+        <a href="{{friendlyUrl}}"><h3>{{subject}}{{#if status}}<span class="scf-idea-status">{{status}}</span>{{/if}}</h3></a>
         <div>
             <a href="{{author.profileURL}}">{{author.name}}</a> <span class="scf-quiet">{{i18n "Posted"}} {{pretty-time created}}</span>
             {{#if configuration.isTaggingAllowed}}

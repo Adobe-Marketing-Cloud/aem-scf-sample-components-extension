@@ -118,12 +118,12 @@
             <span class='scf-comment-translation generic-translation-button translation-button-children scf-comment-action scf-link' href='#' data-translate-button-id='{{id}}' data-translation-show-original-text="{{i18n "Show Original"}}">{{i18n "Translate"}}</span>
     {{/if}}
     {{#if userModerator}}
-    		<select data-attrib="status">
-                <option value="acmeideas:new">new</option>
-                <option value="acmeideas:under-review">under review</option>
-                <option value="acmeideas:reviewed">reviewed</option>
-                <option value="acmeideas:accepted">accepted</option>                
-                <option value="acmeideas:launched">launched</option>                
+            <select data-attrib="status">
+                <option value="acmeideas:new" {{#if newIdea}}selected{{/if}}>new</option>
+                <option value="acmeideas:under-review" {{#if underReview}}selected{{/if}}>under review</option>
+                <option value="acmeideas:reviewed" {{#if reviewed}}selected{{/if}}>reviewed</option>
+                <option value="acmeideas:accepted" {{#if accepted}}selected{{/if}}>accepted</option>                
+                <option value="acmeideas:launched" {{#if launched}}selected{{/if}}>launched</option>                
             </select>
             <button evt='click=setStatus'>{{i18n "Set Status"}}</button>
     {{/if}}

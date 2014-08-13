@@ -69,4 +69,44 @@ public class IdeaSocialComponent extends AbstractPost<ForumConfiguration> implem
             }
         }
     }
+    
+    public String getStatus() {
+        return null == this.statusTag ? null : this.statusTag.getTitle();
+    }
+    
+    public boolean isNewIdea() {
+        if(this.statusTag != null && "acmeideas:new".equals(statusTag.getTagId())){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isAccepted() {
+        if(this.statusTag != null && "acmeideas:accepted".equals(statusTag.getTagId())){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isReviewed() {
+        if(this.statusTag != null && "acmeideas:reviewed".equals(statusTag.getTagId())){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isUnderReview() {
+        if(this.statusTag != null && "acmeideas:under-review".equals(statusTag.getTagId())){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isLaunched() {
+        if(this.statusTag != null && "acmeideas:launched".equals(statusTag.getTagId())){
+            return true;
+        }
+        return false;
+    }
+
 }

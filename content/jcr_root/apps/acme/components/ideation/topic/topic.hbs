@@ -27,7 +27,9 @@
     <div class="scf-topic-col1">
         <div class="scf-js-topic-details">
             {{include this template="status"}}
-            <h3 data-translate-prop="jcr:title" data-translate-respath="{{id}}">{{subject}}</h3>
+            <h3 data-translate-prop="jcr:title" data-translate-respath="{{id}}">{{subject}}
+                {{#if status}}<span class="scf-idea-status">{{status}}</span>{{/if}}
+            </h3>
             <p class="scf-js-comment-msg" data-translate-prop="jcr:description" data-translate-respath="{{id}}">
                 {{#if configuration.isRTEEnabled}}
                     {{{message}}}
