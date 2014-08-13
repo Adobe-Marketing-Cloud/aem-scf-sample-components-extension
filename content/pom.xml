@@ -6,7 +6,7 @@
     <!-- ====================================================================== -->
     <groupId>com.adobe.aem.social.scf.extensions</groupId>
     <artifactId>aem-scf-extensions-package</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
 
     <name>AEM SCF Extensions Samples - Package</name>
     <packaging>content-package</packaging>
