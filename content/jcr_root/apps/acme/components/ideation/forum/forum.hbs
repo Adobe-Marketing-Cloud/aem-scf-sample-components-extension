@@ -49,6 +49,13 @@
             </div>
         </form>
     </div>
+    <div class="idea-filters">Filters:
+    <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"rewards"' class="idea-filter" >Rewards</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"customer"' class="idea-filter">Customer Service</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"other"' class="idea-filter" >Other</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"products"' class="idea-filter">Products</a>
+        <a href='{{pageInfo.basePageURL}}.html?filter=tag%20like%20"experience"' class="idea-filter" >Experience</a>        
+    </div>    
     <ul class="scf-topic-list">
         {{#each items}}
             {{#if isVisible}}
