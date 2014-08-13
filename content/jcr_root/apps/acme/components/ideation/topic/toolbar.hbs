@@ -117,4 +117,14 @@
     {{#if canTranslate}}
             <span class='scf-comment-translation generic-translation-button translation-button-children scf-comment-action scf-link' href='#' data-translate-button-id='{{id}}' data-translation-show-original-text="{{i18n "Show Original"}}">{{i18n "Translate"}}</span>
     {{/if}}
+    {{#if userModerator}}
+    		<select data-attrib="status">
+                <option value="acmeideas:new">new</option>
+                <option value="acmeideas:under-review">under review</option>
+                <option value="acmeideas:reviewed">reviewed</option>
+                <option value="acmeideas:accepted">accepted</option>                
+                <option value="acmeideas:launched">launched</option>                
+            </select>
+            <button evt='click=setStatus'>{{i18n "Set Status"}}</button>
+    {{/if}}
 </div>
