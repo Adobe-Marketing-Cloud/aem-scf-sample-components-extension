@@ -26,6 +26,14 @@
                 sling:resourceType="foundation/components/parsys"
                 components="[group:General,group:Communities,group:ACME Samples]">
                 <section jcr:primaryType="nt:unstructured"/>
+                <forum
+                    jcr:lastModified="{Date}2014-05-20T17:51:49.749-07:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="acme/components/ideation/forum"
+                    postresourcetype="acme/components/ideation/post"
+                    topicresourcetype="acme/components/ideation/topic"
+                    votingRoot="voting"/>
             </content>
         </page>
         <componentpage jcr:primaryType="nt:unstructured">
@@ -36,6 +44,14 @@
                 sling:resourceType="foundation/components/parsys"
                 components="[group:General,group:Communities,group:ACME Samples]">
                 <section jcr:primaryType="nt:unstructured"/>
+                <forum
+                    jcr:lastModified="{Date}2014-05-20T17:51:49.749-07:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="acme/components/ideation/forum"
+                    postresourcetype="acme/components/ideation/post"
+                    topicresourcetype="acme/components/ideation/topic"
+                    votingRoot="voting"/>
             </content>
         </componentpage>
     </jcr:content>
