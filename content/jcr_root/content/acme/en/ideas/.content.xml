@@ -31,7 +31,7 @@
                 jcr:lastModified="{Date}2013-12-06T13:10:44.759-05:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                scg:requiredClientLibs="cq.social.hbs.forum, cq.social.hbs.voting, cq.ckeditor"
+                scg:requiredClientLibs="apps.acme.ideation, cq.social.hbs.voting, cq.ckeditor"
                 sling:resourceType="acme/components/clientlibslist"/>
             <forum
                 jcr:created="{Date}2014-08-12T23:00:18.693-07:00"
