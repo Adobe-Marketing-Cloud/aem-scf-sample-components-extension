@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        title="Categories"
+        xtype="tabpanel">
+        <items
+            jcr:primaryType="cq:Panel"
+            border="false"
+            height=""
+            title="Templates"
+            width=""
+            xtype="panel">
+            <items
+                jcr:primaryType="nt:unstructured"
+                fieldDescription="Click the '+' to a new client lib to include"
+                fieldLabel="Categories"
+                name="./scg:requiredClientLibs"
+                xtype="multifield">
+                <clientlib
+                    jcr:primaryType="cq:Widget"
+                    width="155"
+                    xtype="textfield"/>
+            </items>
+        </items>
+    </items>
+</jcr:root>

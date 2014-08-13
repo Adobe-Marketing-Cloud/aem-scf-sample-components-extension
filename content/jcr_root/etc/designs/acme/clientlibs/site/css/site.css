@@ -1,0 +1,160 @@
+/*
+ * Copyright 2013 Adobe
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.header-bar form.navbar-search {
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+.header-bar .dropdown-menu form {
+	padding: 5px;
+}
+
+/* Fixes up the dialog xml*/
+#CQ .x-panel.cq-selection .x-form-cb-label-hidden {
+	display: inline;
+}
+
+.navbar-fixed-top {
+	position: relative;
+}
+body {
+	background-color: #29282e;
+	color: #9d9b96;
+	padding: 50px;
+	font-family: "Myriad Pro", helvetica, arial;
+	color: #554b42;
+}
+.screen {
+
+	background-repeat: no-repeat;
+	background-color: #f6f6f6;
+}
+.unscreen {
+	opacity: 1;
+}
+
+.login-ui {
+	padding-right: 10px !important;
+}
+.container-fluid {
+	padding: 0px;
+}
+.header-bar {
+	height: 50px;
+	line-height: 50px;
+}
+.head-logo {
+	line-height: 50px;
+	display: inline-block;
+	padding: 0px 10px;
+	background-color: #ed3f30;
+	color: white;
+	font-size: 20px;
+}
+.header-bar a {
+	color: #ed3f30;
+}
+.header-bar .btn {
+	background-color: #f6f6f6;
+	color: #ed3f30;
+	margin-top: 6px;
+}
+.content {
+	padding: 20px;
+}
+.banner {
+	background-image: url('/etc/designs/acme/bg.jpg');
+	height: 250px;
+	background-position-x: 300px;
+	background-position-y: 680px;
+}
+.splashtext {
+	text-align: center;
+	padding: 100px 300px;
+	display: block;
+	color: white;
+	background-color: #000;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	opacity: .6;
+	font-size: 16px;
+}
+.splashtext span {
+	font-size: 24px;
+}
+.navigation .nav {
+	height: 60px;
+	background-color: #fff;
+	box-shadow: 0px 3px 3px #817e91;
+	padding-top: 14px;
+	box-sizing: border-box;
+    text-align: right;
+}
+.nav-pills > li {
+	margin: 0px 30px;
+}
+.navigation .nav a {
+	color: #ed3f30;
+	font-size: 16px;
+}
+.navigation .nav li.active a {
+	background-color: #29282e;
+	color: white;
+}
+.footer {
+	height: 140px;
+	padding: 40px 20px;
+	background-color: #333;
+	color: white;
+	line-height: 30px;
+}
+.footer > div > div:first-child {
+	border-right: 3px solid #000;
+	height: 140px;
+}
+.footer ul {
+	list-style: none;
+	margin-top: 5px;
+}
+.footer ul li {
+	line-height: 20px;
+}
+.footer ul li:before {
+	font-family: AdobeIcons;
+	content: "";
+	margin-right: 10px;
+	color: #ed3f30;
+}
+h1 {
+	color: #000;
+}
+.nav li:nth-child(1) a:before {
+	font-family: AdobeIcons;
+	content: "  ";
+}
+.nav li:nth-child(2) a:before {
+	font-family: AdobeIcons;
+	content: "  ";
+}
+.nav li:nth-child(3) a:before {
+	font-family: AdobeIcons;
+	content: "  ";
+}
+.nav li:nth-child(4) a:before {
+	font-family: AdobeIcons;
+	content: "  ";
+}
