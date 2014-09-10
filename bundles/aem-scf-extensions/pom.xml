@@ -67,6 +67,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.adobe.cq.social</groupId>
+            <artifactId>cq-social-commons</artifactId>
+            <version>1.4.144</version>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.2.2</version>

@@ -47,6 +47,7 @@
             <plugin>
                 <groupId>com.day.jcr.vault</groupId>
                 <artifactId>content-package-maven-plugin</artifactId>
+                <version>0.0.23</version>
                 <extensions>true</extensions>
                 <configuration>
                     <group>aem/scf/extensions-samples</group>
