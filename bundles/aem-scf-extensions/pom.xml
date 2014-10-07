@@ -68,8 +68,8 @@
     <dependencies>
         <dependency>
             <groupId>com.adobe.cq.social</groupId>
-            <artifactId>cq-social-commons</artifactId>
-            <version>1.4.161</version>
+            <artifactId>cq-socialcommunities-api</artifactId>
+            <version>1.5.166</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
