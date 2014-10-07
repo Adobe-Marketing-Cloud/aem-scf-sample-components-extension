@@ -77,16 +77,6 @@
                     </embeddeds>
                 </configuration>
             </plugin>
-            <!--  jshint/csslint is not applicable to this package at this time
-            <plugin>
-                <groupId>ro.isdc.wro4j</groupId>
-                <artifactId>wro4j-maven-plugin</artifactId>
-            </plugin>
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
 
