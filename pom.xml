@@ -8,7 +8,7 @@
     <artifactId>aem-social-scf-extensions-reactor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Social SCF Extension Samples - Reactor</name>
+    <name>AEM SCF Extensions Samples - Reactor</name>
 
     <scm>
         <connection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-scf-sample-components-extension.git</connection>
