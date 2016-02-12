@@ -1,5 +1,12 @@
 package com.adobe.aem.scf.extensions;
 
+import com.adobe.cq.social.commons.comments.api.Comment;
+import com.adobe.cq.social.commons.comments.listing.CommentSocialComponentListProviderManager;
+import com.adobe.cq.social.scf.ClientUtilities;
+import com.adobe.cq.social.scf.QueryRequestInfo;
+import com.adobe.cq.social.scf.SocialComponent;
+import com.adobe.cq.social.scf.SocialComponentFactory;
+import com.adobe.cq.social.scf.core.AbstractSocialComponentFactory;
 import javax.jcr.RepositoryException;
 
 import org.apache.felix.scr.annotations.Component;
@@ -8,15 +15,6 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 
-import com.adobe.cq.social.commons.client.api.AbstractSocialComponentFactory;
-import com.adobe.cq.social.commons.client.api.ClientUtilities;
-import com.adobe.cq.social.commons.client.api.QueryRequestInfo;
-import com.adobe.cq.social.commons.client.api.SocialComponent;
-import com.adobe.cq.social.commons.client.api.SocialComponentFactory;
-import com.adobe.cq.social.commons.comments.api.Comment;
-import com.adobe.cq.social.commons.comments.api.CommentSocialComponentFactory;
-import com.adobe.cq.social.commons.comments.listing.CommentSocialComponentListProviderManager;
-import com.adobe.cq.social.forum.client.api.TopicSocialComponentFactory;
 
 /**
  * CustomCommentFactory extends the default CommentSocialComponentFactory to leverage the default comment social

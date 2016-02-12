@@ -1,5 +1,10 @@
 package com.adobe.aem.scf.extensions;
 
+import com.adobe.cq.social.forum.client.api.Post;
+import com.adobe.cq.social.forum.client.endpoints.ForumOperationExtension;
+import com.adobe.cq.social.forum.client.endpoints.ForumOperationExtension.ForumOperation;
+import com.adobe.cq.social.scf.Operation;
+import com.adobe.cq.social.scf.OperationException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,20 +17,10 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceUtil;
 
-import com.adobe.cq.social.commons.Comment;
-import com.adobe.cq.social.commons.client.endpoints.Operation;
-import com.adobe.cq.social.commons.client.endpoints.OperationException;
-import com.adobe.cq.social.forum.client.endpoints.ForumOperationExtension;
 
 @Component(name = "Ideation Status Extension", immediate = true, metatype = true)
 @Service
 public class IdeationStatusExtension implements ForumOperationExtension {
-
-    @Override
-    public void afterAction(Operation op, Session sessionUsed, Comment comment, Map<String, Object> parameters)
-        throws OperationException {
-        // no-op
-    }
 
     @Override
     public void beforeAction(Operation op, Session sessionUsed, Resource requestResource, Map<String, Object> props)
@@ -62,6 +57,11 @@ public class IdeationStatusExtension implements ForumOperationExtension {
     @Override
     public List<ForumOperation> getOperationsToHookInto() {
         return Arrays.asList(ForumOperation.CREATE);
+    }
+
+    @Override
+    public void afterAction(Operation oprtn, Session sn, Post t, Map<String, Object> map) throws OperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
