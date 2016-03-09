@@ -14,7 +14,7 @@
              <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
-                <version>1.11.0</version>
+                <version>1.20.0</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.slf4j</groupId>
@@ -73,11 +73,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.adobe.cq.social</groupId>
-            <artifactId>cq-socialcommunities-api</artifactId>
-            <version>1.5.166</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.2.2</version>
@@ -88,6 +83,12 @@
             <version>2.4.2</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>org.apache.sling.commons.json</artifactId>
+                            <version>2.0.6</version>
+                            <scope>provided</scope>
+                        </dependency>
         <dependency>
             <groupId>biz.aQute</groupId>
             <artifactId>bndlib</artifactId>
@@ -143,11 +144,11 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
-            <version>6.0.0.1</version>
+            <groupId>com.adobe.cq.social</groupId>
+            <artifactId>cq-socialcommunities-api</artifactId>
+            <version>1.9.220</version>
             <scope>provided</scope>
-        </dependency>
+     </dependency>
     </dependencies>
 
     <distributionManagement>
