@@ -9,9 +9,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 
 import com.adobe.cq.social.commons.comments.api.Comment;
-import com.adobe.cq.social.commons.comments.api.CommentSocialComponentFactory;
 import com.adobe.cq.social.commons.comments.listing.CommentSocialComponentListProviderManager;
-import com.adobe.cq.social.forum.client.api.TopicSocialComponentFactory;
 import com.adobe.cq.social.scf.ClientUtilities;
 import com.adobe.cq.social.scf.QueryRequestInfo;
 import com.adobe.cq.social.scf.SocialComponent;

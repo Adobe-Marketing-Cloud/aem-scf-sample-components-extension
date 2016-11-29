@@ -12,7 +12,6 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceUtil;
 
-import com.adobe.cq.social.commons.comments.api.Comment;
 import com.adobe.cq.social.forum.client.api.Post;
 import com.adobe.cq.social.forum.client.endpoints.ForumOperationExtension;
 import com.adobe.cq.social.scf.Operation;
