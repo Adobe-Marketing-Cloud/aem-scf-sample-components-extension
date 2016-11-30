@@ -23,7 +23,7 @@ public class IdeationStatusExtension implements ForumOperationExtension {
 
    
     @Override
-    public void afterAction(Operation arg0, Session arg1, Post arg2, Map<String, Object> arg3)
+    public void afterAction(Operation op, Session sessionUsed, Post post, Map<String, Object> props)
         throws OperationException {
         // TODO Auto-generated method stub
         
