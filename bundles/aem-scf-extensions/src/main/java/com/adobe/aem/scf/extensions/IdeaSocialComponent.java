@@ -7,12 +7,12 @@ import javax.jcr.RepositoryException;
 
 import org.apache.sling.api.resource.Resource;
 
-import com.adobe.cq.social.commons.client.api.ClientUtilities;
-import com.adobe.cq.social.commons.client.api.QueryRequestInfo;
 import com.adobe.cq.social.commons.comments.listing.CommentSocialComponentListProviderManager;
 import com.adobe.cq.social.forum.client.api.AbstractPost;
 import com.adobe.cq.social.forum.client.api.ForumConfiguration;
 import com.adobe.cq.social.forum.client.api.Post;
+import com.adobe.cq.social.scf.ClientUtilities;
+import com.adobe.cq.social.scf.QueryRequestInfo;
 
 public class IdeaSocialComponent extends AbstractPost<ForumConfiguration> implements Post<ForumConfiguration> {
     

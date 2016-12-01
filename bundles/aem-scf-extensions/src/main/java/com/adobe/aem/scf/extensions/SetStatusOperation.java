@@ -16,13 +16,13 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.servlets.post.PostOperation;
 
-import com.adobe.cq.social.commons.client.api.SocialComponent;
-import com.adobe.cq.social.commons.client.api.SocialComponentFactory;
-import com.adobe.cq.social.commons.client.api.SocialComponentFactoryManager;
-import com.adobe.cq.social.commons.client.endpoints.AbstractSocialOperation;
-import com.adobe.cq.social.commons.client.endpoints.OperationException;
-import com.adobe.cq.social.commons.client.endpoints.SocialOperationResult;
 import com.adobe.cq.social.forum.client.endpoints.ForumOperations;
+import com.adobe.cq.social.scf.OperationException;
+import com.adobe.cq.social.scf.SocialComponent;
+import com.adobe.cq.social.scf.SocialComponentFactory;
+import com.adobe.cq.social.scf.SocialComponentFactoryManager;
+import com.adobe.cq.social.scf.SocialOperationResult;
+import com.adobe.cq.social.scf.core.operations.AbstractSocialOperation;
 
 @Component(immediate = true)
 @Service

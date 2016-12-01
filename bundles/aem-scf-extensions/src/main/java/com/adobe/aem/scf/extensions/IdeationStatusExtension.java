@@ -12,21 +12,22 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceUtil;
 
-import com.adobe.cq.social.commons.Comment;
-import com.adobe.cq.social.commons.client.endpoints.Operation;
-import com.adobe.cq.social.commons.client.endpoints.OperationException;
+import com.adobe.cq.social.forum.client.api.Post;
 import com.adobe.cq.social.forum.client.endpoints.ForumOperationExtension;
+import com.adobe.cq.social.scf.Operation;
+import com.adobe.cq.social.scf.OperationException;
 
 @Component(name = "Ideation Status Extension", immediate = true, metatype = true)
 @Service
 public class IdeationStatusExtension implements ForumOperationExtension {
 
+   
     @Override
-    public void afterAction(Operation op, Session sessionUsed, Comment comment, Map<String, Object> parameters)
+    public void afterAction(Operation op, Session sessionUsed, Post post, Map<String, Object> props)
         throws OperationException {
-        // no-op
+        // TODO Auto-generated method stub
+        
     }
-
     @Override
     public void beforeAction(Operation op, Session sessionUsed, Resource requestResource, Map<String, Object> props)
         throws OperationException {
@@ -63,5 +64,7 @@ public class IdeationStatusExtension implements ForumOperationExtension {
     public List<ForumOperation> getOperationsToHookInto() {
         return Arrays.asList(ForumOperation.CREATE);
     }
+
+
 
 }
