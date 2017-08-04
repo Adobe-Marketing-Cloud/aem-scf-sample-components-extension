@@ -1,0 +1,185 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf scf-topic scf-jounral-entry" data-component-id="{{id}}" data-scf-component="/apps/custom-blog/components/hbs/entry_topic">
+
+    {{#if draft}}
+        {{#if canEdit}}
+            {{include this resourceType="/apps/custom-blog/components/hbs/entry_topic" template="draft"}}
+        {{/if}}
+    {{else}}
+        <p class="scf-breadcrumb scf-quiet">{{i18n "Entries"}} &#187; <a href="{{pageInfo.basePageURL}}.html">{{i18n "Blog"}}</a> &#187; {{subject}}</p>
+        <div class="scf-topic-col1">
+            <div class="scf-js-topic-details">
+                {{include this template="status"}}
+                {{#if configuration.isTranslateAllButtonAllowed}}
+                    <span evt="click=translateAll" style='display:none;' data-translation-parent-box-class="scf-topic" data-translation-parent-id-attr="data-component-id" data-translation-parent-box-id="{{id}}" class='generic-translation-all-button scf-comment-action scf-link'>
+                    {{#if showingTranslationAll}}
+                        {{i18n "Show Original"}}
+                    {{else}}
+                        {{#if translateAllInProgress}}
+                            {{i18n "Translating"}}
+                        {{else}}
+                            {{i18n "Translate All"}}
+                        {{/if}}
+                    {{/if}}
+                </span>
+                {{/if}}
+                {{#if loggedInUser.loggedIn}}
+                    <div class="scf-action-container">
+                        {{#if configuration.followingAllowed}}
+                            <div class="scf-action-item scf-blog-following-block">
+                                {{#include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions" authoringDisabled="true" }}
+                                    {"subscribedId" : "{{this.id}}"}
+                                {{/include}}
+                            </div>
+                        {{/if}}
+                        <div class="scf-clear-both"></div>
+                    </div>
+                {{/if}}
+                <h3 data-translate-prop="jcr:title" data-translate-respath="{{id}}">
+          			{{#if showingTranslation}}
+            			{{translationTitle}}
+                    {{else}}
+                        {{subject}}
+                    {{/if}}
+        		</h3>
+
+                <h4 data-translate-prop="jcr:title" data-translate-respath="{{id}}">
+          			{{#if showingTranslation}}
+            			{{translationSubtitle}}
+                    {{else}}
+                        {{subtitle}}
+                    {{/if}}
+        		</h4>
+
+                <div>
+                    <span class="scf-quiet">{{i18n "Created "}} {{pretty-time created}}</span>
+                    <span class="scf-quiet">{{i18n " by "}}</span><a href="{{author.profileUrl}}">{{author.name}}</a>
+                    {{#each author.badges}}
+                        {{#if this.isAssigned}}
+                            <div class="scf-badge-text">
+                                {{this.title}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    {{#each author.badges}}
+                        {{#unless this.isAssigned}}
+                            <img class="scf-badge-image" alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" />
+                        {{/unless}}
+                    {{/each}}
+                    {{#if configuration.isTaggingAllowed}}
+                        <div class="scf-blog-topic-tags-container">
+                            <ul class="scf-horizontal-tag-list">
+                                {{#each tags}}
+                                    <li class="scf-selected-tag">{{title}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                </div>
+                {{include this resourceType="social/commons/components/hbs/socialshare"}}
+                <p class="scf-js-comment-msg" data-translate-prop="jcr:description" data-translate-respath="{{id}}">
+                    {{#if showingTranslation}}
+                        {{#if displaySideBySide}}
+                            <div>{{{message}}}</div>
+                        {{/if}}
+                        {{{translationDescription}}}
+                    {{else}}
+                        {{{message}}}
+                    {{/if}}
+                </p>
+
+
+            </div>
+            {{#if showingTranslation }}
+                <div class='translation-attribution'><i>{{translationAttribution}}</i></div>
+            {{/if}}
+            {{include this template="toolbar"}}
+
+        </div>
+
+
+
+        <div class="scf-clear-both"></div>
+
+        {{#if this.configuration.isAttachmentAllowed}}
+            {{#if attachments}}
+                <div class="scf-comment-attachments">
+                    {{#each attachments}}
+
+                        {{#if this.image}}
+                            <div class="scf-comment-img-att">
+                                <img src="{{this.path}}" class="scf-comment-attachment-img" />
+                                <div class="scf-comment-att-name"><a href="{{this.path}}" target="_blank" class="scf-link">{{name}}</a></div>
+                            </div>
+                        {{else}}
+                            <div class="scf-comment-att scf-icon-attachment scf-small "><a class="scf-link scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></div>
+                        {{/if}}
+
+                    {{/each}}
+                </div>
+            {{/if}}
+        {{/if}}
+        <div class="scf-js-journal-comment-section">
+            <ul class="scf-comments-list">
+                {{#each items}}
+                    {{#if isVisible}}
+                        {{include this resourceType="social/journal/components/hbs/comment"}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+            <!-- pagination -->
+            {{include this resourceType="social/commons/components/hbs/pages"}}
+            <!-- eo pagination -->
+            {{#unless isClosed}}
+                {{#if canReply}}
+                    <h3>{{i18n "Post Comment"}}</h3>
+                    <div class="scf-composer-block scf-is-collapsed scf-js-composer-block">
+                        <img class="scf-composer-avatar" src="{{loggedInUser.avatarUrl}}" />
+                        <form evt="submit=addReply" class="scf-composer">
+                            {{#if configuration.isRTEEnabled}}
+                                <textarea class="scf-composer-msg scf-rte-placeholder" placeholder="{{i18n "Write a comment"}}" evt="click=toggleComposerCollapse"></textarea>
+                                <div class="scf-rte-composer">
+                                    <textarea class="scf-composer-msg" data-rte-type="comment" data-attrib="replyMessage" data-field-type="rte" name="replyMessage" placeholder="{{i18n "Write a comment"}}"></textarea>
+                                </div>
+                            {{else}}
+                                <textarea class="scf-composer-msg" data-attrib="replyMessage" name="replyMessage" placeholder="{{i18n "Write a comment"}}" evt="click=toggleComposerCollapse"></textarea>
+                            {{/if}}
+                            <div class="scf-composer-toolbar">
+                                {{#if configuration.isAttachmentAllowed}}
+                                    <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                                    <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib="attachment" name="attachment" multiple evt="change=renderAttachmentList" />
+                                {{/if}}
+                                <div class="scf-composer-actions">
+                                    <button type="reset" class="btn btn-default scf-composer-action" evt="click=toggleComposerCollapse">{{i18n "Cancel"}}</button>
+                                    <input type="submit" class="btn btn-primary" value="{{i18n "Reply"}}" evt="submit=addReply" />
+                                </div>
+                                {{#if configuration.isAttachmentAllowed}}
+                                    <div class="scf-composer-attachments">
+                                        <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </form>
+                    </div>
+                {{/if}}
+            {{/unless}}
+        </div>
+    {{/if}}
+</div>

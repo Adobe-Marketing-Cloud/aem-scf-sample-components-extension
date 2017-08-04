@@ -1,0 +1,88 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-topic-listitem" data-component-id="{{id}}">
+    <div class="scf-topic-col1">
+        <a href="{{friendlyUrl}}"><h3>{{subject}}</h3></a>
+        <h4>{{subtitle}}</h4>
+        <div>
+            <span class="scf-quiet">
+                {{#unless draft}}{{i18n "Published "}} {{#if publishDate}}{{pretty-time publishDate}}{{else}}{{pretty-time created}}{{/if}}
+                {{else}}{{#unless scheduled}}{{i18n "Created"}}
+                {{else}}{{i18n "Scheduled on "}} {{dateUtil start format="MMMM"}} {{dateUtil start format="dd"}}, {{dateUtil start format="YYYY"}}{{/unless}}{{/unless}}
+            </span><span class="scf-quiet">{{i18n " by "}}
+            <a href="{{author.profileUrl}}">{{author.name}}</a>
+            {{#each author.badges}}
+                {{#if this.isAssigned}}
+                    <div class="scf-badge-text">
+                        {{this.title}}
+                    </div>
+                {{/if}}
+            {{/each}}
+            {{#each author.badges}}
+                {{#unless this.isAssigned}}
+                    <img class="scf-badge-image" alt="{{this.title}}" title="{{this.title}}" src="{{this.imageUrl}}" /> 
+                {{/unless}}
+            {{/each}}
+            {{#if viewCounts.total}}
+            <span class="scf-analytics-view-metrics scf-js-analytics-view-metrics">,
+            {{i18n "Viewed"}}
+            {{viewCounts.total}}
+            {{i18n "time(s)"}}</span>
+            {{/if}}
+            </span>
+            {{#if configuration.isTaggingAllowed}}
+                <div class="scf-blog-topic-tags-container">
+                    <ul class="scf-horizontal-tag-list">
+                        {{#each tags}}
+                            <li class="scf-selected-tag">{{title}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/if}}
+        </div>
+        <p class="scf-comment-msg">
+            {{{message}}}
+        </p>
+        <p>
+            {{#if this.configuration.isAttachmentAllowed}}
+                {{#if attachments}}
+                    <div class="scf-comment-attachments">
+                        {{#each attachments}}
+
+                            {{#if this.image}}
+                                <div class="scf-comment-img-att">
+                                    <img src="{{this.path}}" class="scf-comment-attachment-img" />
+                                    <div class="scf-comment-att-name"><a href="{{this.path}}" target="_blank" class="scf-link">{{name}}</a></div>
+                                </div>
+                            {{else}}
+                                <div class="scf-comment-att scf-icon-attachment scf-small "><a class="scf-link scf-comment-att-link" href="{{this.path}}" target="_blank">{{this.name}}</a></div>
+                            {{/if}}
+
+                        {{/each}}
+                    </div>
+                {{/if}}
+            {{/if}}
+        </p>
+    </div>
+
+    <div class="scf-topic-section-comments">
+        {{#if loggedInUser.loggedIn}}<a href="{{this.friendlyUrl}}">{{i18n "Leave a comment"}} | </a>{{/if}}<a href="{{this.friendlyUrl}}">{{i18n "View comments"}} ({{totalSize}})</a>
+    </div>
+    <div class="scf-clear-both"></div>
+</div>

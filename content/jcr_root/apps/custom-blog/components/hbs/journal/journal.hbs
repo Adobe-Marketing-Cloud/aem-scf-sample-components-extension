@@ -1,0 +1,64 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+{{#if-wcm-mode mode="EDIT" }}
+    <div class="scf-includeClientLib">{{includeClientLib js="cq.social.commons.widgets, cq.social.toggle"}}</div>
+{{/if-wcm-mode}}
+<div class="scf scf-forum" data-component-id="{{id}}" data-scf-component="/apps/custom-blog/components/hbs/journal">
+    <div class="scf-action-container">
+        {{#if loggedInUser.loggedIn}}
+            {{#if mayPost}}
+                <button class="btn btn-primary scf-action-item" evt="click=toggleComposer">{{i18n "New Article"}}</button>
+            {{/if}}
+            {{#if configuration.followingAllowed}}
+                <div class="scf-action-item scf-blog-following-block">
+                    {{include this.id path="subscriptions" resourceType="social/subscriptions/components/hbs/subscriptions"}}
+                </div>
+            {{/if}}
+        {{/if}}
+        <div class="scf-clear-both"></div>
+    </div>
+	{{include this resourceType="/apps/custom-blog/components/hbs/journal" template="composer"}}
+    {{#if mayPost}}
+        <ul class="nav nav-tabs scf-nav-tab-padding scf-js-journal-tab" role="tablist">
+            <li role="presentation" class="scf-journal-tab active"><a class="scf-js-allPosts" href="#scf-js-allPosts" aria-controls="scf-js-allPosts" role="tab" data-toggle="tab" evt="click=fetchAllPosts">{{i18n "Published"}}</a></li>
+            <li role="presentation" class="scf-journal-tab"><a class="scf-js-draftPosts" href="#scf-js-allDrafts" aria-controls="scf-js-allDrafts" role="tab" data-toggle="tab" evt="click=fetchDrafts">{{i18n "Drafts"}}</a></li>
+            <li role="presentation" class="scf-journal-tab"><a class="scf-js-laterPosts" aria-controls="scf-js-laterPosts" role="tab" data-toggle="tab" href="#scf-js-laterPosts" evt="click=fetchLaterPosts">{{i18n "Scheduled"}}</a></li>
+        </ul>
+    {{/if}}
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="scf-js-allPosts">
+            <div class="msmrkt-blog-articlelist__template scf-topic-list scf-js-topic-list">
+                {{#each items}}
+                    {{#if isVisible}}
+					<article class="msmrkt-list-group__item msmrkt-article msmrkt-article-list">
+						{{include this resourceType="/apps/custom-blog/components/hbs/entry_topic" template="list-item" bind=false}}
+					</article>
+                    {{/if}}
+                {{/each}}
+            </div>
+            <!-- NEW pagination -->
+            {{include this resourceType="social/commons/components/hbs/pages"}}
+            <!-- eo NEW pagination -->
+        </div>
+        {{#if mayPost}}
+            <div role="tabpanel" class="tab-pane" id="scf-js-draftPosts"></div>
+            <div role="tabpanel" class="tab-pane" id="scf-js-laterPosts"></div>
+        {{/if}}
+    </div>
+</div>

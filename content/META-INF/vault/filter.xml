@@ -5,4 +5,6 @@
     <filter root="/content/acme"/>
     <filter root="/etc/tags/Acme"/>
     <filter root="/etc/tags/acmeideas"/>
+    <filter root="/apps/custom-blog"/>
+    <filter root="/etc/designs/social/console/jcr:content/basepage/content/responsivegrid/journal"/>
 </workspaceFilter>

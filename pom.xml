@@ -5,10 +5,10 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <groupId>com.adobe.aem.social.samples</groupId>
-    <artifactId>aem-social-scf-extensions-reactor</artifactId>
+    <artifactId>aem-social-extensions-reactor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>AEM SCF Extensions Samples - Reactor</name>
+    <name>AEM Extensions Samples - Reactor</name>
 
     <scm>
         <connection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-scf-sample-components-extension.git</connection>
@@ -22,6 +22,7 @@
     <!-- ====================================================================== -->
     <modules>
         <module>bundles/aem-scf-extensions</module>
+		<module>bundles/aem-journal-extensions</module>
         <module>content</module>
     </modules>
 </project>

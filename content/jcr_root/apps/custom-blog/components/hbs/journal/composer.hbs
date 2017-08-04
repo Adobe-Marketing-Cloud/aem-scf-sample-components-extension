@@ -1,0 +1,84 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div class="scf-composer-block scf-js-composer-block scf-is-collapsed">
+    <form evt="submit=addComment" class="scf-composer scf-composer-journal" data-form="new-comment">
+        <input class="scf-composer-msg" type="text" data-attrib="subject" name="subject" placeholder="{{i18n "Add a blog title"}}" data-scf-validator='{"validation":"noempty"}' />
+
+        <!--Adding a new subtitle for extension-->
+        <input class="scf-composer-msg" type="text" data-attrib="subtitle" name="subtitle" placeholder="{{i18n "Add a blog subtitle"}}" data-scf-validator='{"validation":"noempty"}' />
+
+        <textarea class="scf-composer-msg" type="text" data-attrib="message" name="message" placeholder="{{i18n "Message"}}" class="comment-composer-input" {{#if configuration.isRTEEnabled}} data-field-type="rte" data-editorheight="400" data-editorresize="true" {{/if}}></textarea>
+        {{#if configuration.isTaggingAllowed}}
+            <div class="scf-composer-container-tags">
+                <ul data-attrib="tags" name="tags" data-field-type="smarttags" data-tag-filter="{{configuration.tagFilterVal}}" data-tag-limit="{{configuration.tagFilterLimit}}"></ul>
+            </div>
+        {{/if}}
+        {{#if configuration.usingPrivilegedUsers}}
+            <div class="ui-widget">
+                <input class="scf-composer-msg" type="text" class="scf-js-userfilter" data-field-type="userdropdown" name="composedFor" placeholder="{{i18n "Compose On Behalf of a User"}}" data-attrib="composedFor" />
+            </div>
+            <h5 class="scf-is-hidden scf-js-invalid-user">{{i18n "Specified user is not valid"}}</h5>
+        {{/if}}
+        <div class="scf-composer-container-publish">
+            {{i18n "Publish"}}
+            <br/>
+            <div class="btn-group scf-js-pubish-type">
+                <button type="button" class="btn btn-default dropdown-toggle" evt="click=hidePublishOption" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="button_label">{{i18n "Immediately"}}</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a evt="click=showImmediatelyOption">{{i18n "Immediately"}}</a></li>
+                    <li><a evt="click=showDraftOption">{{i18n "Draft"}}</a></li>
+                    <li><a evt="click=showPublishOption">{{i18n "At scheduled date and time"}}</a></li>
+                </ul>
+            </div>
+            <div class="scf-form_datepicker_right scf-js-publish-time-input scf-composer-container-publish scf-is-hidden" id="scf-form_rightcol_right_event-basics-start">
+                <input name="scf-event-basics-start-input" class="scf-form_field scf-form_field_text scf-event-basics-start-input form-control scf-js-event-basics-start-input ui-widget ui-corner-all" value="">
+                <div class="scf-form_datepicker_middle">&nbsp;</div>
+                <input type="text" id="scf-event-basics-start-time" name="scf-event-basics-start-time" class="scf-form_field scf-form_field_text ui-autocomplete-input scf-event-basics-start-time scf-js-event-basics-start-time form-control" data-timepicker-type="select" placeholder="hh:mm am" autocomplete="off" value="02:04 pm" style="display: none;">
+                <select id="scf-event-basics-start-hour" class="scf-form_field scf-form_field_text scf-js-event-basics-start-time-hours form-control scf-event-timepicker scf-event-basics-start-hour scf-js-event-basics-start-hour" data-for="scf-js-event-basics-start-time">
+                </select>
+                <select class="scf-form_field scf-form_field_text scf-js-event-basics-start-time-minutes form-control scf-event-timepicker scf-event-basics-start-min scf-js-event-basics-start-min" data-for="scf-js-event-basics-start-time">
+                </select>
+                <select class="scf-form_field scf-form_field_text scf-js-event-basics-start-time-ampm form-control scf-event-timepicker" data-for="scf-js-event-basics-start-time">
+                  <option value="AM">{{i18n "AM"}}</option>
+                  <option value="PM" selected="selected">{{i18n "PM"}}</option>
+                </select><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+            </div>
+        </div>
+        <div class="scf-clear-both"></div>
+        <div class='scf-composer-toolbar'>
+            {{#if configuration.isAttachmentAllowed}}
+                <button class="btn btn-primary scf-composer-action scf-composer-attach" evt="click=openAttachmentDialog">{{i18n "Attach"}}</button>
+                <input class="scf-comment-attachment-input scf-js-cmt-att-input" type="file" data-attrib='attachment' name="attachment" multiple evt="change=renderAttachmentList" />
+            {{/if}}
+            <div class="scf-composer-actions">
+                <button type="reset" class="btn btn-default scf-composer-action" evt="click=toggleComposer">{{i18n "Cancel"}}</button>
+                <button class="btn btn-primary scf-composer-action scf-js-save-draft-btn" evt="click=addCommentDraft" style="display:none">{{i18n "Save"}}</button>
+                <input class="btn btn-primary scf-js-publish-btn" type="submit" value="{{i18n "Publish"}}" evt="submit=addComment" />
+            </div>
+            {{#if configuration.isAttachmentAllowed}}
+                <div class="scf-composer-attachments">
+                    <ul class="scf-attachment-list scf-js-composer-att"></ul>
+                </div>
+            {{/if}}
+        </div>
+    </form>
+</div>
