@@ -18,7 +18,8 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <install.target>/apps/acme/install</install.target>
+        <install.target.acme>/apps/acme/install</install.target.acme>
+        <install.target.blog>/apps/custom-blog/install</install.target.blog>
     </properties>
 
     <!-- ====================================================================== -->
@@ -72,7 +73,12 @@
                         <embedded>
                             <groupId>com.adobe.aem.social.scf.extensions</groupId>
                             <artifactId>aem-scf-extensions</artifactId>
-                            <target>${install.target}</target>
+                            <target>${install.target.acme}</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem.social.journal.extensions</groupId>
+                            <artifactId>aem-journal-extensions</artifactId>
+                            <target>${install.target.blog}</target>
                         </embedded>
                     </embeddeds>
                 </configuration>
@@ -87,5 +93,12 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.aem.social.journal.extensions</groupId>
+            <artifactId>aem-journal-extensions</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
+
