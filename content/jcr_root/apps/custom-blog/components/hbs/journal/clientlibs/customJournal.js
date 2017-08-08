@@ -34,9 +34,7 @@
             var customData = {
                 subject: this.get("subject")
             };
-            var customData = {
-                subtitle: this.get("subtitle")
-            };
+            customData.subtitle = this.get("subtitle");
             if (this.has("isDraft")) {
                 customData.isDraft = this.get("isDraft");
                 var publishDate = this.get("publishDate");
@@ -68,7 +66,7 @@
             this.setField("editSubject", subject);
             this.focus("editSubject");
 
-            var subject = this.model.get('subtitle');
+            var subtitle = this.model.get('subtitle');
             this.setField("editSubtitle", subtitle);
 
             if (!this.eventBinded) {
