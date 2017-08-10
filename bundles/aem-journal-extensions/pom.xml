@@ -173,7 +173,7 @@
         <dependency>
             <groupId>com.adobe.cq.social</groupId>
             <artifactId>cq-socialcommunities-api</artifactId>
-            <version>1.12.0</version>
+            <version>1.11.170</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
